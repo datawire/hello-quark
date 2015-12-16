@@ -25,8 +25,8 @@ import time
 import traceback
 import uuid
 
-import dateutil.tz
-import pyisemail
+#import dateutil.tz
+#import pyisemail
 
 from quark_threaded_runtime import get_threaded_runtime as get_runtime
 
@@ -51,8 +51,8 @@ def getEmail():
 
         if not emailAddress:
             print("We really do need your email address! We promise not to spam you.")
-        elif not pyisemail.is_email(emailAddress):
-            print("We really do need a valid email address! We promise not to spam you.")
+        #elif not pyisemail.is_email(emailAddress):
+        #    print("We really do need a valid email address! We promise not to spam you.")
         else:
             print("Thanks!")
             break
@@ -128,7 +128,9 @@ def getDatawireState():
 
 def now8601():
     # Yeek.
-    return datetime.datetime.now(dateutil.tz.tzlocal()).isoformat()
+    
+    #return datetime.datetime.now(dateutil.tz.tzlocal()).isoformat()
+    return datetime.datetime.now().isoformat()
 
 def osVersion():
     sysName = platform.system()
