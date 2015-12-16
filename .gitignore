@@ -1,4 +1,7 @@
+*.class
+target
 1_hello_quark/hello
 .directory
 *.pyc
 etc/venv
+build

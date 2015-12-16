@@ -17,22 +17,29 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   </properties>
   
   <dependencies>
-    <!--
     <dependency>
-      <groupId>com.sun.jersey</groupId>
-      <artifactId>jersey-servlet</artifactId>
-      <version>${jersey.version}</version>
+      <groupId>hello</groupId>
+      <artifactId>hello</artifactId>
+      <version>1.0.0</version>
     </dependency>
-    -->
   </dependencies>
   
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <mainClass>io.datawire.example.HelloQuark</mainClass>
         </configuration>
       </plugin>
     </plugins>
