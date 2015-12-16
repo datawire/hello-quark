@@ -1,0 +1,2 @@
+#datawire-quark
+-e git+ssh://git@github.com/datawire/quark.git#egg=datawire-quark

@@ -43,4 +43,4 @@ package HelloQuark {
     }
 
     class HelloClient extends Client, HelloQuark {}
-}
+} 
