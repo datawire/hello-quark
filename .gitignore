@@ -5,3 +5,5 @@ target
 *.pyc
 etc/venv
 build
+*.iml
+.idea

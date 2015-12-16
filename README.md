@@ -19,16 +19,6 @@ pip install hello/dist/hello-1.0.0-py2-none-any.whl
 python hello.py
 ```
 
-## JavaScript
-
-Instructions for JavaScript
-
-```bash
-cd 1_hello_quark
-quark package hello.q --javascript -o js/hello --javascript-out=.
-cd js
-```
-
 ## Java
 
 Instructions for Java (1.7+)

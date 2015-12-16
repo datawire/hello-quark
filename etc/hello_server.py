@@ -22,7 +22,7 @@ class HelloRpcHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         content_type = 'text/plain'
 
-        if self.path in ['/', '', None]:
+        if self.path in ['/hello']:
             msg = self.rfile.read(int(self.headers.getheader('Content-Length')))
             print("---> received message: {}".format(msg))
           
