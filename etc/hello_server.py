@@ -14,8 +14,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-def main():
-  pass
+from BaseHTTPServer import HTTPServer
+from BaseHTTPServer import BaseHTTPRequestHandler
+
+class HelloRpcHandler(BaseHTTPRequestHandler):
+
+    def do_POST(self):
+        content_type = 'text/plain'
+
+        if self.path in ['/', '', None]:
+            msg = self.rfile.read(int(self.headers.getheader('Content-Length')))
+            print("---> received message: {}".format(msg))
+          
+            self.send_response(200)
+            self.send_header('Content-Type', content_type)
+            self.wfile.write('\n')
+            self.wfile.write('Hello from Datawire!\n')
+        else:
+            self.send_response(404)
+
+def main(args):
+    port = 12216
+    if len(args) >= 2:
+        port = int(args[1])
+  
+    print("---> starting hello rpc server (port: {})".format(port))
+    server = HTTPServer(('127.0.0.1', port), HelloRpcHandler)
+    server.serve_forever()
 
 if __name__ == "__main__":
-  pass
+    import sys
+    main(sys.argv)
