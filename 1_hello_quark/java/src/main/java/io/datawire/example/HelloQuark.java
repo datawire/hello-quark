@@ -24,6 +24,11 @@ public class HelloQuark {
   public static void main(String... args) throws Exception {
     io.datawire.quark.runtime.Runtime runtime = new QuarkNettyRuntime();
 
+    // By default we send the message to our RPC server, however, if you feel
+    // uncomfortable with this choice please swap the below comments and run
+    // from the main directory 'python etc/hello_server.py'
+
+    //client = hello.HelloClient(runtime, "http://hello.datawire.io:12216/hello")
     HelloClient client = new HelloClient(runtime, "http://localhost:12216/hello");
     Request request = new Request();
     request.text = "Hello Quark! (lang: java, version: " + System.getProperty("java.version") + ")";
