@@ -1,4 +1,4 @@
 1_hello_quark/hello
 .directory
 *.pyc
-
+etc/venv
