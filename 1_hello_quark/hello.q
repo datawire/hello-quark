@@ -15,32 +15,32 @@
 */
 
 @version("1.0.0")
-package HelloQuark {
-    
+package hello {
+
+    @doc("A value class for Request data for the hello service.")
     class Request {
-        String user_id;
-        String event_time;
-        String email_address;
-        String runtime_info;
-        String system_info;
-        String quark_version;
-        String app_version;
-        String query;
+        String text;
     }
 
+    @doc("A value class for Response data from the hello service.")
     class Response {
-        String status;
-        String message;
+        @doc("A greeting from the hello service.")
+        String result;
     }
 
-    String defaultURL() {
-        return "https://exfc0lkzc6.execute-api.us-east-1.amazonaws.com/prod/HelloQuark";
+    @doc("The hello service.")
+    interface Hello extends Service {
+
+        @doc("Respond to a hello request.")
+        @delegate(self.rpc) // XXX: The "self." in front of rpc is a workaround.
+        Response hello(Request request);
+
     }
 
-    interface HelloQuark extends Service {
-        @delegate(self.rpc)
-        Response helloQuark(Request request);
-    }
+    @doc("A client adapter for the hello service.")
+    class HelloClient extends Client, Hello {}
 
-    class HelloClient extends Client, HelloQuark {}
-} 
+    @doc("A server adapter for the hello service.")
+    class HelloServer extends Server<Hello> {}
+
+}

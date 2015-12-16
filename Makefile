@@ -48,7 +48,7 @@ vpackage: vinstall
 		pip install $(SOURCES)/hello/dist/HelloQuark-1.0.0-py2-none-any.whl; \
 	)
 
-vhello: vcompile
+hello:
 	( \
 		source $(VENV)/bin/activate; \
 		python $(SOURCES)/hello.py; \
