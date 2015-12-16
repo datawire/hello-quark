@@ -22,7 +22,13 @@ from quark_threaded_runtime import get_runtime
 def main():
     runtime = get_runtime()
 
-    client = hello.HelloClient(runtime, "http://127.0.0.1:8910/hello")
+    # By default we send the message to our RPC server, however, if you feel
+    # uncomfortable with this choice please swap the below comments and run 
+    # from the main directory 'python etc/hello_server.py'
+    
+    #client = hello.HelloClient(runtime, "http://hello.datawire.io/12216")
+    client = hello.HelloClient(runtime, "http://127.0.0.1:12216/hello")
+    
     request = hello.Request()
     request.text = "Hello Quark! (lang: python, version: %s)" % '.'.join(str(x) for x in sys.version_info[0:3])
     print "Request says %r" % request.text
